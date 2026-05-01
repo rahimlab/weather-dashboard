@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.icon {
+  color: rgba(255, 200, 180, 0.85);
+}
+
+.message {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  max-width: 380px;
+  line-height: 1.5;
+}
+
+.retry {
+  margin-top: 0.25rem;
+  padding: 0.45rem 1.4rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.retry:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.retry:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 3px;
+}

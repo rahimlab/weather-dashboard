@@ -1,0 +1,52 @@
+.mapWrapper {
+  margin-top: 1.25rem;
+}
+
+.mapLabelRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.mapLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.mapStatus {
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.mapStatusError {
+  font-size: 0.75rem;
+  color: #c62828;
+  margin: 0;
+}
+
+.mapContainer {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 300px;
+  box-shadow: var(--shadow-card);
+  /* crosshair so users know they can click */
+  cursor: crosshair;
+}
+
+.mapHint {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin: 0.4rem 0 0;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .mapContainer {
+    height: 200px;
+  }
+}

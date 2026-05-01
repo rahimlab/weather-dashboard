@@ -1,0 +1,158 @@
+.form {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  max-width: 440px;
+  width: 100%;
+}
+
+.inputWrap {
+  position: relative;
+  flex: 1;
+}
+
+.input {
+  width: 100%;
+  padding: 0.55rem 2.2rem 0.55rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input:focus {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* :focus-visible on the input provides the WCAG outline;
+   suppress the default :focus ring since we style :focus already */
+.input:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 2px;
+}
+
+.clearBtn:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.searchBtn:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 3px;
+}
+
+.input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.clearBtn {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.15rem;
+  transition: color 0.15s;
+}
+
+.clearBtn:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.searchBtn {
+  padding: 0.55rem 1.1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: var(--radius);
+  color: #1a1a2e;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.searchBtn:hover {
+  background: #fff;
+}
+
+/* ===== suggestions dropdown ===== */
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 0;
+  right: 0;
+  z-index: 200;
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+  background: rgba(12, 16, 32, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.option {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+  transition: background 0.1s;
+  user-select: none;
+}
+
+.option:hover,
+.optionActive {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.optionCity {
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.optionState {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
+.optionCountry {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+/* ===== responsive ===== */
+
+@media (max-width: 400px) {
+  .searchBtn {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.82rem;
+  }
+}

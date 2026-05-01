@@ -1,0 +1,60 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* shared shimmer */
+@keyframes shimmer {
+  0%   { opacity: 0.35; }
+  50%  { opacity: 0.7; }
+  100% { opacity: 0.35; }
+}
+
+.block,
+.statBlock {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-md);
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* main card skeleton */
+.card {
+  padding: 1.5rem;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.city   { height: 2rem;   width: 55%; animation-delay: 0s; }
+.temp   { height: 4.5rem; width: 40%; animation-delay: 0.15s; }
+.desc   { height: 1.1rem; width: 50%; animation-delay: 0.3s; }
+.feels  { height: 0.9rem; width: 35%; animation-delay: 0.45s; }
+
+/* stats skeleton */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.statBlock {
+  height: 80px;
+  border-radius: var(--radius-md);
+}
+
+.statBlock:nth-child(1) { animation-delay: 0.1s; }
+.statBlock:nth-child(2) { animation-delay: 0.2s; }
+.statBlock:nth-child(3) { animation-delay: 0.3s; }
+.statBlock:nth-child(4) { animation-delay: 0.4s; }
+.statBlock:nth-child(5) { animation-delay: 0.5s; }
+.statBlock:nth-child(6) { animation-delay: 0.6s; }
+
+@media (max-width: 600px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}

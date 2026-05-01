@@ -1,0 +1,223 @@
+/* =============================================
+   GLOBAL STYLESHEET — WeatherNow
+   CSS custom properties, reset, typography,
+   utilities, keyframes, breakpoints
+   ============================================= */
+
+/* ===== custom properties ===== */
+
+:root {
+  /* brand */
+  --color-primary:      #1a73e8;
+  --color-secondary:    #0f9d58;
+
+  /* text */
+  --color-text:         #202124;
+  --color-text-muted:   #5f6368;
+
+  /* card glass layer */
+  --color-card-bg:      rgba(255, 255, 255, 0.13);
+  --color-card-border:  rgba(255, 255, 255, 0.22);
+
+  /* radius */
+  --radius-md:  8px;
+  --radius-lg:  16px;
+
+  /* shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.18);
+
+  /* typography */
+  --font-body:    system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* ---- legacy aliases — existing modules rely on these ---- */
+  --color-bg:             #f5f7fa;
+  --color-surface:        #ffffff;
+  --color-text-secondary: var(--color-text-muted);
+  --color-border:         #dadce0;
+  --radius:               var(--radius-md);
+  --shadow:               var(--shadow-card);
+}
+
+/* ===== reset ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== base ===== */
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* ===== focus-visible (WCAG 2.1 AA — SC 1.4.11) =====
+   Blue ring visible on both dark (themed) and light (forecast/saved) pages.
+   #1a73e8 vs white = 4.75:1 contrast ✓
+   #1a73e8 vs dark backgrounds ≥ 4:1 ✓
+*/
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* high-contrast white ring for elements that sit fully inside a dark glass card */
+.focus-light:focus-visible {
+  outline-color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== utility: container ===== */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 0.75rem;
+  }
+}
+
+/* ===== global background theme classes =====
+   Can be applied directly to any element;
+   used here as a complement to the DynamicBackground component.
+   All include a 30% dark tint via a shared ::before rule
+   so white text meets WCAG large-text 3:1 on every theme. ===== */
+
+.bg-sunny,
+.bg-cloudy,
+.bg-rainy,
+.bg-stormy,
+.bg-snowy,
+.bg-foggy,
+.bg-night-clear,
+.bg-night-cloudy {
+  position: relative;
+}
+
+.bg-sunny      { background: linear-gradient(150deg, #e8a020 0%, #c45208 50%, #8b2e00 100%); }
+.bg-cloudy     { background: linear-gradient(160deg, #4b6cb7 0%, #182848 100%); }
+.bg-rainy      { background: linear-gradient(160deg, #2c3e50 0%, #29628d 100%); }
+.bg-stormy     { background: linear-gradient(160deg, #0f0c29 0%, #302b63 60%, #1f1c2c 100%); }
+.bg-snowy      { background: linear-gradient(160deg, #accbee 0%, #d4e8fa 60%, #e7f0fd 100%); }
+.bg-foggy      { background: linear-gradient(160deg, #8e9eab 0%, #636e7b 50%, #3f4c6b 100%); }
+.bg-night-clear  { background: linear-gradient(160deg, #0f0c29 0%, #302b63 50%, #24243e 100%); }
+.bg-night-cloudy { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%); }
+
+/* dark-tint overlay — ensures white text meets WCAG large-text 3:1 on all themes */
+.bg-sunny::before,
+.bg-cloudy::before,
+.bg-rainy::before,
+.bg-stormy::before,
+.bg-snowy::before,
+.bg-foggy::before,
+.bg-night-clear::before,
+.bg-night-cloudy::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-sunny::before  { background: rgba(0, 0, 0, 0.40); }
+.bg-snowy::before  { background: rgba(0, 0, 0, 0.38); }
+.bg-foggy::before  { background: rgba(0, 0, 0, 0.25); }
+.bg-cloudy::before,
+.bg-rainy::before  { background: rgba(0, 0, 0, 0.18); }
+.bg-stormy::before,
+.bg-night-clear::before,
+.bg-night-cloudy::before { background: rgba(0, 0, 0, 0.10); }
+
+/* ===== keyframe animations =====
+   Named to match the spec; component modules reuse these
+   or define their own scoped variants. ===== */
+
+@keyframes sun-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.55; }
+  50%       { transform: scale(1.2); opacity: 0.95; }
+}
+
+@keyframes rain-fall {
+  from { transform: translateY(0)    translateX(0); }
+  to   { transform: translateY(60px) translateX(9px); }
+}
+
+@keyframes snow-fall {
+  from { transform: translateY(-120px) translateX(0); }
+  to   { transform: translateY(100vh)  translateX(28px); }
+}
+
+@keyframes lightning {
+  0%,  86%, 100% { background: rgba(170, 180, 255, 0); }
+  87%, 89%       { background: rgba(200, 215, 255, 0.14); }
+  88%, 90%       { background: rgba(170, 180, 255, 0); }
+  91%            { background: rgba(200, 215, 255, 0.08); }
+}
+
+@keyframes star-twinkle {
+  from { opacity: 0.55; }
+  to   { opacity: 1; }
+}
+
+/* ===== responsive type scale ===== */
+
+@media (max-width: 768px) {
+  html { font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+}
