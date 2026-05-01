@@ -1,0 +1,106 @@
+
+> weather-dashboard@0.0.0 test
+> vitest run --reporter=verbose
+
+
+[1m[46m RUN [49m[22m [36mv3.2.4 [39m[90mC:/Users/User/Desktop/weather-dashboard[39m
+
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-01: returns value with °C suffix for metric units[32m 30[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-02: returns value with °F suffix for imperial units[32m 21[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-07: handles zero without treating it as falsy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-08: handles negative temperatures[32m 4[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-09: rounds decimal temperatures before display[32m 8[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-10: defaults to metric when units arg is omitted[32m 7[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatWindSpeed[2m > [22mTC-U-03: returns speed with m/s suffix for metric units[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatWindSpeed[2m > [22mTC-U-04: returns speed with mph suffix for imperial units[32m 8[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatWindSpeed[2m > [22mTC-U-11: toFixed(1) rounds to one decimal place[32m 7[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatHumidity[2m > [22mTC-U-05: appends % to the humidity number[32m 10[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatHumidity[2m > [22mhandles boundary values[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatDate[2m > [22mTC-U-06: returns weekday, day, and month for a known timestamp[32m 147[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatDate[2m > [22mproduces a non-empty string for any valid unix timestamp[32m 4[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTime[2m > [22mTC-U-12: returns a string matching HH:MM format (24-hour)[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTime[2m > [22mproduces a string with correct hour/minute for epoch zero in any timezone[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useWeather.test.js[2m > [22museWeather[2m > [22mTC-H-01: returns loading=true on initial call before the fetch resolves[32m 187[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useWeather.test.js[2m > [22museWeather[2m > [22mTC-H-02: returns weather data after successful fetch (MSW intercepts)[32m 103[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useWeather.test.js[2m > [22museWeather[2m > [22mTC-H-03: returns error string when API returns 404[32m 108[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useWeather.test.js[2m > [22museWeather[2m > [22mTC-H-04: uses cached data and does NOT call fetch when cache is fresh[32m 21[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useWeather.test.js[2m > [22museWeather[2m > [22mTC-H-05: refetch() triggers a new API call bypassing cache[32m 68[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useWeather.test.js[2m > [22museWeather[2m > [22mTC-H-06: does not fetch and stays idle when no city is provided[32m 7[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useWeather.test.js[2m > [22museWeather[2m > [22mTC-H-07: data and error are null in initial state before any city is set[32m 4[2mms[22m[39m
+ [32m✓[39m tests/unit/components/DynamicBackground.test.jsx[2m > [22mDynamicBackground[2m > [22mTC-C-17: applies sunny theme CSS class when theme="sunny"[32m 93[2mms[22m[39m
+ [32m✓[39m tests/unit/components/DynamicBackground.test.jsx[2m > [22mDynamicBackground[2m > [22mTC-C-18: applies rainy theme CSS class when theme="rainy"[32m 17[2mms[22m[39m
+ [32m✓[39m tests/unit/components/DynamicBackground.test.jsx[2m > [22mDynamicBackground[2m > [22mTC-C-19: renders children inside the background div[32m 54[2mms[22m[39m
+ [32m✓[39m tests/unit/components/DynamicBackground.test.jsx[2m > [22mDynamicBackground[2m > [22mTC-C-20: defaults to cloudy theme when no theme prop is supplied[32m 5[2mms[22m[39m
+ [32m✓[39m tests/unit/components/DynamicBackground.test.jsx[2m > [22mDynamicBackground[2m > [22mTC-C-21: renders the animated overlay div for the sunny theme[32m 9[2mms[22m[39m
+ [32m✓[39m tests/unit/components/DynamicBackground.test.jsx[2m > [22mDynamicBackground[2m > [22mTC-C-22: does not render an overlay div for the cloudy (non-animated) theme[32m 5[2mms[22m[39m
+ [32m✓[39m tests/unit/components/DynamicBackground.test.jsx[2m > [22mDynamicBackground[2m > [22mTC-C-23: overlay div is aria-hidden to keep decorative animation out of screen readers[32m 5[2mms[22m[39m
+ [32m✓[39m tests/unit/components/WeatherStats.test.jsx[2m > [22mWeatherStats[2m > [22mTC-C-11: renders humidity value from weatherData prop[32m 228[2mms[22m[39m
+ [32m✓[39m tests/unit/components/WeatherStats.test.jsx[2m > [22mWeatherStats[2m > [22mTC-C-12: renders wind speed value[32m 24[2mms[22m[39m
+ [32m✓[39m tests/unit/components/WeatherStats.test.jsx[2m > [22mWeatherStats[2m > [22mTC-C-13: all stat items have aria-label attributes[32m 33[2mms[22m[39m
+ [32m✓[39m tests/unit/components/SearchBar.test.jsx[2m > [22mSearchBar[2m > [22mTC-C-01: renders input with aria-label "Search for a city"[32m 236[2mms[22m[39m
+ [32m✓[39m tests/unit/components/CurrentWeather.test.jsx[2m > [22mCurrentWeather[2m > [22mTC-C-06: renders city name from weatherData prop[32m 151[2mms[22m[39m
+ [32m✓[39m tests/unit/components/CurrentWeather.test.jsx[2m > [22mCurrentWeather[2m > [22mTC-C-07: renders temperature formatted with °C[32m 18[2mms[22m[39m
+ [32m✓[39m tests/unit/components/CurrentWeather.test.jsx[2m > [22mCurrentWeather[2m > [22mTC-C-08: renders weather description text[32m 12[2mms[22m[39m
+ [32m✓[39m tests/unit/components/WeatherStats.test.jsx[2m > [22mWeatherStats[2m > [22mTC-C-14: renders pressure value[32m 61[2mms[22m[39m
+ [32m✓[39m tests/unit/components/WeatherStats.test.jsx[2m > [22mWeatherStats[2m > [22mTC-C-15: renders visibility formatted as km[32m 26[2mms[22m[39m
+ [32m✓[39m tests/unit/components/WeatherStats.test.jsx[2m > [22mWeatherStats[2m > [22mTC-C-16: returns null when data prop is null[32m 3[2mms[22m[39m
+ [32m✓[39m tests/unit/components/WeatherStats.test.jsx[2m > [22mWeatherStats[2m > [22mTC-C-17: renders exactly 6 stat items[32m 164[2mms[22m[39m
+ [32m✓[39m tests/unit/components/FiveDayForecast.test.jsx[2m > [22mFiveDayForecast[2m > [22mTC-C-14: renders exactly 5 forecast card list items[33m 330[2mms[22m[39m
+ [32m✓[39m tests/unit/components/FiveDayForecast.test.jsx[2m > [22mFiveDayForecast[2m > [22mTC-C-15: each card renders a date string[32m 53[2mms[22m[39m
+ [32m✓[39m tests/unit/components/FiveDayForecast.test.jsx[2m > [22mFiveDayForecast[2m > [22mTC-C-16: renders loading spinner when loading prop is true[32m 30[2mms[22m[39m
+ [32m✓[39m tests/unit/components/FiveDayForecast.test.jsx[2m > [22mFiveDayForecast[2m > [22mTC-C-17: renders nothing when forecast array is empty[32m 3[2mms[22m[39m
+ [32m✓[39m tests/unit/components/CurrentWeather.test.jsx[2m > [22mCurrentWeather[2m > [22mTC-C-09: renders save button in idle state[32m 223[2mms[22m[39m
+ [32m✓[39m tests/unit/components/FiveDayForecast.test.jsx[2m > [22mFiveDayForecast[2m > [22mTC-C-18: renders city heading when city prop is provided[32m 56[2mms[22m[39m
+ [32m✓[39m tests/unit/components/FiveDayForecast.test.jsx[2m > [22mFiveDayForecast[2m > [22mTC-C-19: section has aria-label that includes the city name[32m 37[2mms[22m[39m
+ [32m✓[39m tests/unit/components/CurrentWeather.test.jsx[2m > [22mCurrentWeather[2m > [22mTC-C-10: clicking save button calls saveLocation with correct args[32m 158[2mms[22m[39m
+ [32m✓[39m tests/unit/components/CurrentWeather.test.jsx[2m > [22mCurrentWeather[2m > [22mTC-C-11: renders feels-like temperature[32m 10[2mms[22m[39m
+ [32m✓[39m tests/unit/components/CurrentWeather.test.jsx[2m > [22mCurrentWeather[2m > [22mTC-C-12: renders nothing when data prop is null[32m 4[2mms[22m[39m
+ [32m✓[39m tests/unit/components/SearchBar.test.jsx[2m > [22mSearchBar[2m > [22mTC-C-02: typing into input updates its value[33m 367[2mms[22m[39m
+ [32m✓[39m tests/unit/components/SearchBar.test.jsx[2m > [22mSearchBar[2m > [22mTC-C-03: submitting form calls setSelectedCity with the typed value[33m 406[2mms[22m[39m
+ [32m✓[39m tests/unit/components/SearchBar.test.jsx[2m > [22mSearchBar[2m > [22mTC-C-04: clear button appears when input has a value[32m 132[2mms[22m[39m
+ [32m✓[39m tests/unit/components/SearchBar.test.jsx[2m > [22mSearchBar[2m > [22mTC-C-05: clear button resets input to empty[32m 273[2mms[22m[39m
+ [32m✓[39m tests/unit/components/SearchBar.test.jsx[2m > [22mSearchBar[2m > [22mTC-C-06: submit trims surrounding whitespace before calling context[32m 269[2mms[22m[39m
+ [32m✓[39m tests/unit/components/SearchBar.test.jsx[2m > [22mSearchBar[2m > [22mTC-C-07: submit with only whitespace does not call setSelectedCity[32m 174[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useGeolocation.test.js[2m > [22museGeolocation[2m > [22mTC-H-10: initial state has lat/lon/error null and loading false[32m 56[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useGeolocation.test.js[2m > [22museGeolocation[2m > [22mTC-H-06: loading is true while the geolocation request is pending[32m 18[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useGeolocation.test.js[2m > [22museGeolocation[2m > [22mTC-H-07: returns lat and lon after a successful geolocation response[32m 19[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useGeolocation.test.js[2m > [22museGeolocation[2m > [22mTC-H-08: returns an error message when geolocation permission is denied[32m 15[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useGeolocation.test.js[2m > [22museGeolocation[2m > [22mTC-H-09: code=1 error message is "Location access denied. Please search manually."[32m 15[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useGeolocation.test.js[2m > [22museGeolocation[2m > [22mTC-H-11: code=2 returns the "could not be determined" message[32m 15[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useGeolocation.test.js[2m > [22museGeolocation[2m > [22mTC-H-12: code=3 returns the timeout message[32m 16[2mms[22m[39m
+ [32m✓[39m tests/unit/hooks/useGeolocation.test.js[2m > [22museGeolocation[2m > [22mTC-H-13: unknown error code falls back to the generic message[32m 15[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mclear sky (code 800)[2m > [22mTC-U-09: returns sunny during the day[32m 7[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mclear sky (code 800)[2m > [22mTC-U-10: returns night-clear at night[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mrain band (3xx–5xx)[2m > [22mTC-U-11: 500 (light rain) returns rainy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mrain band (3xx–5xx)[2m > [22mTC-U-16: 300 (light drizzle) returns rainy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mrain band (3xx–5xx)[2m > [22mhandles top of rain range (599)[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mthunderstorm band (2xx)[2m > [22mTC-U-12: 200 (thunderstorm) returns stormy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mthunderstorm band (2xx)[2m > [22mTC-U-17: 299 (top of storm range) returns stormy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22msnow band (6xx)[2m > [22mTC-U-13: 600 (light snow) returns snowy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22msnow band (6xx)[2m > [22mTC-U-18: 699 (top of snow range) returns snowy[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22matmosphere band (7xx — fog/haze/mist)[2m > [22mTC-U-15: 741 (fog) returns foggy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22matmosphere band (7xx — fog/haze/mist)[2m > [22mhandles 701 (mist) returning foggy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mpartly cloudy to overcast (801–804)[2m > [22mTC-U-14: 801 (few clouds) returns cloudy during the day[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mpartly cloudy to overcast (801–804)[2m > [22mTC-U-19: 804 (overcast) returns night-cloudy at night[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mpartly cloudy to overcast (801–804)[2m > [22m802 returns cloudy during the day[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mTC-U-20: returns true when current time is between sunrise and sunset[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mTC-U-21: returns false when current time is before sunrise[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mTC-U-22: returns false when current time equals sunset (exclusive upper bound)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mreturns true when current time equals sunrise (inclusive lower bound)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mreturns false when current time is after sunset[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-16: returns stored data when retrieved immediately[32m 18[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-17: returns null after the default 10-minute maxAge has elapsed[32m 6[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-19: returns null for a key that was never set[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-20: respects a custom maxAge passed to getCachedWeather[32m 5[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-21: returns data when just under the default maxAge threshold[32m 3[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mstores and retrieves multiple independent city keys[32m 3[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22moverwrites a previously cached entry with fresh data[32m 3[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22mclearWeatherCache[2m > [22mTC-U-18: removes all entries for both cached cities[32m 6[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22mclearWeatherCache[2m > [22mTC-U-22: does not remove sessionStorage keys without the weather_ prefix[32m 8[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22mclearWeatherCache[2m > [22mis a no-op when the cache is already empty[32m 8[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m10 passed[39m[22m[90m (10)[39m
+[2m      Tests [22m [1m[32m93 passed[39m[22m[90m (93)[39m
+[2m   Start at [22m 12:48:19
+[2m   Duration [22m 10.93s[2m (transform 2.38s, setup 14.46s, collect 9.20s, tests 4.98s, environment 20.89s, prepare 5.40s)[22m
+

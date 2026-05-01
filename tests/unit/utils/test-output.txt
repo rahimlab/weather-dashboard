@@ -1,0 +1,57 @@
+
+> weather-dashboard@0.0.0 test
+> vitest run --reporter=verbose
+
+
+[1m[46m RUN [49m[22m [36mv3.2.4 [39m[90mC:/Users/User/Desktop/weather-dashboard[39m
+
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mclear sky (code 800)[2m > [22mTC-U-09: returns sunny during the day[32m 6[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mclear sky (code 800)[2m > [22mTC-U-10: returns night-clear at night[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mrain band (3xx–5xx)[2m > [22mTC-U-11: 500 (light rain) returns rainy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mrain band (3xx–5xx)[2m > [22mTC-U-16: 300 (light drizzle) returns rainy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mrain band (3xx–5xx)[2m > [22mhandles top of rain range (599)[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mthunderstorm band (2xx)[2m > [22mTC-U-12: 200 (thunderstorm) returns stormy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mthunderstorm band (2xx)[2m > [22mTC-U-17: 299 (top of storm range) returns stormy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22msnow band (6xx)[2m > [22mTC-U-13: 600 (light snow) returns snowy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22msnow band (6xx)[2m > [22mTC-U-18: 699 (top of snow range) returns snowy[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22matmosphere band (7xx — fog/haze/mist)[2m > [22mTC-U-15: 741 (fog) returns foggy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22matmosphere band (7xx — fog/haze/mist)[2m > [22mhandles 701 (mist) returning foggy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mpartly cloudy to overcast (801–804)[2m > [22mTC-U-14: 801 (few clouds) returns cloudy during the day[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mpartly cloudy to overcast (801–804)[2m > [22mTC-U-19: 804 (overcast) returns night-cloudy at night[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22mgetBackgroundTheme[2m > [22mpartly cloudy to overcast (801–804)[2m > [22m802 returns cloudy during the day[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mTC-U-20: returns true when current time is between sunrise and sunset[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mTC-U-21: returns false when current time is before sunrise[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mTC-U-22: returns false when current time equals sunset (exclusive upper bound)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mreturns true when current time equals sunrise (inclusive lower bound)[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/weatherConditions.test.js[2m > [22misDaytime[2m > [22mreturns false when current time is after sunset[32m 0[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-16: returns stored data when retrieved immediately[32m 17[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-17: returns null after the default 10-minute maxAge has elapsed[32m 6[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-19: returns null for a key that was never set[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-20: respects a custom maxAge passed to getCachedWeather[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mTC-U-21: returns data when just under the default maxAge threshold[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22mstores and retrieves multiple independent city keys[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22msetCachedWeather + getCachedWeather[2m > [22moverwrites a previously cached entry with fresh data[32m 4[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22mclearWeatherCache[2m > [22mTC-U-18: removes all entries for both cached cities[32m 4[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22mclearWeatherCache[2m > [22mTC-U-22: does not remove sessionStorage keys without the weather_ prefix[32m 3[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/cache.test.js[2m > [22mclearWeatherCache[2m > [22mis a no-op when the cache is already empty[32m 3[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-01: returns value with °C suffix for metric units[32m 6[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-02: returns value with °F suffix for imperial units[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-07: handles zero without treating it as falsy[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-08: handles negative temperatures[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-09: rounds decimal temperatures before display[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTemperature[2m > [22mTC-U-10: defaults to metric when units arg is omitted[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatWindSpeed[2m > [22mTC-U-03: returns speed with m/s suffix for metric units[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatWindSpeed[2m > [22mTC-U-04: returns speed with mph suffix for imperial units[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatWindSpeed[2m > [22mTC-U-11: toFixed(1) rounds to one decimal place[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatHumidity[2m > [22mTC-U-05: appends % to the humidity number[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatHumidity[2m > [22mhandles boundary values[32m 1[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatDate[2m > [22mTC-U-06: returns weekday, day, and month for a known timestamp[32m 136[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatDate[2m > [22mproduces a non-empty string for any valid unix timestamp[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTime[2m > [22mTC-U-12: returns a string matching HH:MM format (24-hour)[32m 2[2mms[22m[39m
+ [32m✓[39m tests/unit/utils/formatters.test.js[2m > [22mformatTime[2m > [22mproduces a string with correct hour/minute for epoch zero in any timezone[32m 1[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+[2m      Tests [22m [1m[32m44 passed[39m[22m[90m (44)[39m
+[2m   Start at [22m 12:29:55
+[2m   Duration [22m 7.09s[2m (transform 390ms, setup 5.28s, collect 317ms, tests 285ms, environment 10.54s, prepare 1.89s)[22m
+
